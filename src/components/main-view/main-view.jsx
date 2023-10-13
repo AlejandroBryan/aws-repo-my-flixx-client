@@ -185,6 +185,8 @@ const MainView = () => {
                               movies={movies}
                               favoritesMovies={favoritesMovies}
                               toggleFavoritesMovies={toggleFavoritesMovies}
+                              user={user}
+                              token={token}
                            />
                         )}
                      </Fragment>

@@ -4,10 +4,14 @@ import MovieCard from '../movie-card/movie-card';
 import UpdateView from './update-view';
 import FavoriteMovies from './favorites-movies';
 import UserInfo from './user-info';
+//import UserFavoritesScenes from './user-favorites-scenes';
+import ImageUpload from '../image-upload/image-upload';
+import { API } from '../../utils';
+import FetchUserImages from './fetch-user-images';
 
 const ProfileView = ({ user, token, favoritesMovies, toggleFavoritesMovies }) => {
    const handleDelete = () => {
-      fetch(`https://myflixx.herokuapp.com/api/v1/users/${user.Username}`, {
+      fetch(`${API}/users/${user.Username}`, {
          method: 'DELETE',
          mode: 'cors',
          credentials: 'include',
@@ -37,7 +41,17 @@ const ProfileView = ({ user, token, favoritesMovies, toggleFavoritesMovies }) =>
             <UserInfo user={user} handleUserDelete={handleDelete} />
             <UpdateView user={user} token={token} />
             <FavoriteMovies favoritesMovies={favoritesMovies} toggleFavoritesMovies={toggleFavoritesMovies} />
+
+            <Col eventKey="uploaded-images" title="Uploaded Images">
+               <Row className="justify-content-center py-5">
+                  <h2 className="text-center mb-5">Uploaded Images</h2>
+                  <Row className="justify-content-center pb-3">
+                     <ImageUpload  userId={user._id} token={token}/>
+                  </Row>
+               </Row>
+            </Col>
          </Row>
+         <FetchUserImages userId={user._id} token={token} />
       </Fragment>
    );
 };

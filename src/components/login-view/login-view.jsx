@@ -33,8 +33,9 @@ const LoginView = ({ onLoggedIn }) => {
                alert('Login failed');
             }
          })
-         .catch((error) => alert('Something went wrong', error.message));
+         .catch((error) => console.log('Something went wrong', error.message));
    };
+
    return (
       <div className="container min-vh-100 d-flex justify-content-center align-items-center">
          <Form onSubmit={handleSubmit}>

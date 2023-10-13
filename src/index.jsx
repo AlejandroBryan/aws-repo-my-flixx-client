@@ -1,5 +1,5 @@
 import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom/client';
 import MainView from './components/main-view/main-view';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
@@ -14,5 +14,5 @@ const App = () => {
 };
 
 const container = document.getElementById('root');
-const root = createRoot(container);
+const root = ReactDOM.createRoot(container);
 root.render(<App />);

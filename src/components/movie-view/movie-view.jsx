@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
-import { Card, Button, Image, Row, Col } from 'react-bootstrap';
+import { Card, Button, Image, Row, Col, Tab } from 'react-bootstrap';
 import { HeartFill } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import { Fragment } from 'react';
 import GenresView from './genres-view';
 import DirectorView from './directors-view';
 
-const MovieView = ({ movies, favoritesMovies, toggleFavoritesMovies }) => {
+const MovieView = ({ movies, favoritesMovies, toggleFavoritesMovies, user, token }) => {
    const { movieId } = useParams();
    const movie = movies.find((m) => m.id === movieId);
    const isFavorites = favoritesMovies.some((favMovie) => favMovie.id === movie.id);
@@ -15,6 +15,8 @@ const MovieView = ({ movies, favoritesMovies, toggleFavoritesMovies }) => {
    const handleToggle = () => {
       toggleFavoritesMovies(movie);
    };
+   console.log(`Movie ` + movieId);
+   console.log(`user ` + user._id);
 
    return (
       <Row className="my-4">
