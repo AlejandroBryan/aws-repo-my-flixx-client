@@ -42,7 +42,7 @@ const ProfileView = ({ user, token, favoritesMovies, toggleFavoritesMovies }) =>
             <UpdateView user={user} token={token} />
             <FavoriteMovies favoritesMovies={favoritesMovies} toggleFavoritesMovies={toggleFavoritesMovies} />
 
-            <Col eventKey="uploaded-images" title="Uploaded Images">
+            <Col title="Uploaded Images">
                <Row className="justify-content-center py-5">
                   <h2 className="text-center mb-5">Uploaded Images</h2>
                   <Row className="justify-content-center pb-3">
